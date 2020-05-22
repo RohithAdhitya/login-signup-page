@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="login-page">
+           <div class="form">
+               <form class="register-form" name="register">
+                   <input type="text" placeholder="username" name="name" pattern="[a-zA-z]+" required />
+                   <input type="text" placeholder="password" name="pass" required/>
+                   <input type="text" placeholder="email id" name="mail"required/>
+                   <button onclick="formvalid()">create</button>
+                   <p class="message">Already Registered? <a href="#">Login</a></p>
+               </form>
+
+               <form class="login-form" name="login">
+                   <input type="text" placeholder="user name" name="uname" pattern="[a-zA-z]+" required/>
+                   <input type="text" placeholder="password"  name="pswd" required/>
+                   <button onclick="validform()">Login</button>
+                   <p class="message">Not Registered? <a href="#">Register</a></p>
+               </form>
+           </div> 
+        </div>
+        <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+        <script>
+            $('.message a').click(function(){
+             $('form').animate({height:"toggle",opacity:"toggle"}, "slow");   
+            }); 
+        </script>
+        <script type="text/javascript">
+            function formsubmit() {
+                window.event.returnvalue = false;
+                if (confirm("ARE YOU SURE THAT DETAILS ENTERED BY YOU IS TRUE ?")) {
+                    window.event.returnvalue = true;
+                }
+            }
+    
+            function formvalid() {
+                alert("ARE YOU SURE THAT DETAILS ENTERED BY YOU IS CORRECT ?");
+    
+                var a = document.forms["register"]["name"].value;
+                if (a == "") {
+                    alert("!!! NAME must be filled out !!!");
+                    return false;
+                }
+                var c = document.forms["register"]["pass"].value;
+                if (c == "") {
+                    alert("!!! PASSWORD must be filled out!!!");
+                    return false;
+                }
+                var d = document.forms["register"]["mail"].value;
+                if (d == "") {
+                    alert("!!! E-MAIL must be filled out !!!");
+                    return false;
+                }
+            }
+            
+            function validform(){
+                alert("ARE YOU SURE THAT DETAILS ENTERED BY YOU IS CORRECT ?");
+    
+                var a = document.forms["login"]["uname"].value;
+                if (a == "") {
+                    alert("!!! NAME must be filled out !!!");
+                    return false;
+                }
+                var c = document.forms["register"]["pswd"].value;
+                if (c == "") {
+                    alert("!!! PASSWORD must be filled out!!!");
+                    return false;
+                }
+            }
+        </script>
+    </body>
+
+</html>
